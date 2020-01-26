@@ -15,7 +15,7 @@ const cities = [
 
 class App extends Component {
   handleSelectionLocation = city => {
-    console.log("handleSelectionLocation");
+    console.log(`handleSelectionLocation ${city}`);
   }
   render() {
     return (
