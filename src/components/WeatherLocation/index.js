@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import CircularProgress from "@material-ui/core/CircularProgress";
 import transformWeather from "./../../services/transformWeather";
 import { api_weather } from "./../../constants/api_url";
 import Location from './Location';
@@ -45,9 +46,8 @@ class WeatherLocation extends Component {
             <div className="weatherLocationCont">
                 <Location city={city}></Location>
                 {data ?
-                    <WeatherData data={data}></WeatherData>
-                    : 
-                    "Cargando ..."
+                    <WeatherData data={data}></WeatherData> : 
+                    <CircularProgress size={50} />
                 }
             </div>
         );
