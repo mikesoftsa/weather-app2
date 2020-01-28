@@ -1,15 +1,16 @@
 import React, { Component  } from "react";
 import PropTypes from "prop-types";
 import ForecastItem from "./ForecastItem";
+import transformForecast from "./../services/transformForecast";
 import "./styles.css";
 
-const days = [
+/*const days = [
     "Lunes",
     "Martes",
     "Miercoles",
     "Jueves",
     "Viernes"
-];
+];*/
 
 /*const data = {
     temperature: 10,
@@ -42,13 +43,15 @@ class ForecastExtended extends Component {
         ).then(
             weather_data => {
                 console.log(weather_data);
+                const forecastData = transformForecast(weather_data);
+                this.setState({ forecastData });
             }
         );
     }
     
 
     renderForecastItenDay() {
-        return "Render Items";
+        return <h1>Render Items</h1>;
         //return days.map( day => (<ForecastItem weekDay={day} hour={10} data={data}></ForecastItem>));        
     }
 
