@@ -11,25 +11,43 @@ const days = [
     "Viernes"
 ];
 
-const data = {
+/*const data = {
     temperature: 10,
     humidity: 10,
     weatherState: 'normal',
     wind: 'normal'
-}
+}*/
 
 class ForecastExtended extends Component {
     
+    constructor() {
+        super();
+
+        this.state = {
+            forecastData: null
+        }
+
+    }
+
     renderForecastItenDay() {
-        return days.map( day => (<ForecastItem weekDay={day} hour={10} data={data}></ForecastItem>));        
+        return "Render Items";
+        //return days.map( day => (<ForecastItem weekDay={day} hour={10} data={data}></ForecastItem>));        
+    }
+
+    renderProgress = () => {
+        return <h3>Cargando pronóstico extendido...</h3>;
     }
 
     render() {
         const { city } = this.props;
+        const { forecastData } = this.state;
         return (
             <div>
                 <h2 className="forecast-title">Pronóstico extendido para {city}</h2>
-                {this.renderForecastItenDay()}
+                { forecastData ?
+                    this.renderForecastItenDay() :
+                    this.renderProgress()
+                }
             </div>
         )
     }
