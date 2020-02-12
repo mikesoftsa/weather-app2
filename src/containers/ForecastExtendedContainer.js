@@ -15,7 +15,7 @@ class ForecastExtendedContainer extends Component {
 
 ForecastExtendedContainer.propTypes = {
     city: PropTypes.string.isRequired,
-    forecastData: PropTypes.array.isRequired,
+    forecastData: PropTypes.array,
 };
 
 const mapStateToProps = ({ city, cities }) => ({ city, forecastData: cities[city] && cities[city].forecastData })
